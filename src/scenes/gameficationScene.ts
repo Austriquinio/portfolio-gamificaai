@@ -1,8 +1,21 @@
-import {Actor, Color, Engine, Scene, vec} from "excalibur";
+import {Actor, Color, Engine, FadeInOut, Keys, Scene, SceneActivationContext, vec} from "excalibur";
 import { Resources } from "../resources";
 
 export class gamificationScene extends Scene {
         elementoTexto?: HTMLElement
+
+        fadeOutElement(elemento: HTMLElement) {
+
+            let opacidade = parseFloat(elemento.style.opacity)
+    
+    
+            if (opacidade > 0) {
+    
+                opacidade = opacidade - 0.1
+    
+                elemento.style.opacity = opacidade.toString()
+            }
+        }
 
     onInitialize(_engine: Engine<any>): void {
         this.backgroundColor = Color.fromHex("#403f4c")
@@ -36,7 +49,7 @@ export class gamificationScene extends Scene {
     // Aplicar zoom na imagem - 40% de x, e 40% de y
     imagemLogo.scale = vec(0.7, 0.7)
 
-    let spriteLogoGamificaAi = Resources.LogoVertical.toSprite()
+    let spriteLogoGamificaAi = Resources.Logo2.toSprite()
     spriteLogoGamificaAi.scale = vec(0.7, 0.7)
 
     // Configurar o actor para usar a imagem
@@ -45,6 +58,20 @@ export class gamificationScene extends Scene {
     })
 
     // Adicionando Actor Logo na tela
-    this.add(actorLogo)
-}
+     this.add(actorLogo)
+
+        this.input.keyboard.on("press", (_event) => {
+             if (_event.key == Keys.Enter) {
+                this.fadeOutElement(this.elementoTexto!)
+             this.engine.goToScene("exposicao",{
+                sourceOut:new FadeInOut ({duration:1000})
+
+             })
+             }
+        })
+    }   
+
+    onDeactivate(context: SceneActivationContext<undefined>): void {
+        this.elementoTexto?.remove()
+    }
 }
