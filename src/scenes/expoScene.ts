@@ -2,7 +2,13 @@ import {Actor, Color, Engine, FadeInOut, Keys, Scene, SceneActivationContext, ve
 import { Resources } from "../resources";
 
 export class expoScene extends Scene {
-    onInitialize(engine: Engine<any>): void {
+
+   
+
+onInitialize(engine: Engine<any>): void {
+    let tiledMap = Resources.Mapa
     this.backgroundColor= Color.Blue
-    duration: 1000
+    tiledMap.addToScene(this)
+}
+
 }
