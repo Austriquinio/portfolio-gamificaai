@@ -1,9 +1,16 @@
-import { Actor, Color, Engine, Keys, Scene, SceneActivationContext, Transition, vec } from "excalibur";
+import { Actor, Color, Engine, FadeInOut, Keys, Scene, SceneActivationContext, Transition, vec } from "excalibur";
 import { Resources } from "../resources";
 
 export class historyScene extends Scene {
     elementoTexto?: HTMLElement
 
+    onTransition(direction: "in" | "out"): Transition | undefined {
+        return new FadeInOut ({
+            direction: direction,
+            color: Color.Black,
+            duration: 1000
+        })
+    }
     fadeOutElement(elemento: HTMLElement) {
 
         let opacidade = parseFloat(elemento.style.opacity)

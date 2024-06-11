@@ -5,12 +5,12 @@ import logo2 from "./images/logo2.png"
 
 import pngTilesetPath from "./maps/Room_Builder_32x32.png?url"
 
-import tsxParedesPath from "./maps/pngTileset_paredes.tsx?url"
-import tsxGenericPath from "./maps/pngTileset_generic.tsx?url"
-import tsxEstoquePath from "./maps/pngTileset_estoque.tsx?url"
-import tsxBibliotecaPath from "./maps/pngTileset_biblioteca.tsx?url"
+import tsxParedesPath from "./maps/titleset_paredes.tsx?url"
+import tsxGenericPath from "./maps/tileset_generics.tsx?url"
+import tsxEstoquePath from "./maps/tileset_estoque.tsx?url"
+import tsxBibliotecaPath from "./maps/tileset_biblioteca.tsx?url"
 
-import tmxMapaPath from "./maps/showroom_map.tmx?url"
+import tmxMapaPath from "./maps/Showroom_map.tmx?url"
 import { TiledResource } from "@excaliburjs/plugin-tiled";
 
 export const Resources = {
@@ -23,7 +23,7 @@ export const Resources = {
       {path: "Room_Builder_32x32.png", output: pngTilesetPath},
       {path: "tileset_paredes.tsx", output: tsxParedesPath},
       {path: "tileset_generic.tsx", output: tsxGenericPath},
-      {path: "tileset_estoque.tsx", output: tsxEstoquePath}
+      {path: "tileset_estoque.tsx", output: tsxEstoquePath},
       {path: "tileset_biblioteca.tsx", output: tsxBibliotecaPath}
       
 
