@@ -1,4 +1,4 @@
-import {Actor, Color, Engine, FadeInOut, Keys, Transition, Scene, SceneActivationContext, vec} from "excalibur";
+import {Actor, Color, Engine, FadeInOut, Keys, Transition, Scene, SceneActivationContext, vec, CollisionType} from "excalibur";
 import { Resources } from "../resources";
 import { PLayer } from "../actors/player";
 
@@ -31,6 +31,23 @@ onInitialize(engine: Engine<any>): void {
         jogador.z = 1
 
         this.add(jogador)
+
+        let camadaObjetosColisores = tiledMap.getObjectLayers("ColisoresO")[0]
+
+
+        camadaObjetosColisores.objects.forEach(objeto => {
+
+            const objetoAtual = new Actor({
+                name: objeto.name,
+                x: objeto.x + offsetX + (objeto.tiledObject.width! / 2),
+                y: objeto.y + offsetX + (objeto.tiledObject.height! / 2),
+                width: objeto.tiledObject.width,
+                height: objeto.tiledObject.height,
+                collisionType: CollisionType.Fixed,
+                z: 99
+            })
+            this.add(objetoAtual)
+        })
     }
 
 }

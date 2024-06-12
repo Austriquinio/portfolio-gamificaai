@@ -1,4 +1,4 @@
-import { Actor, Engine, Color, vec, Keys } from "excalibur";
+import { Actor, Engine, Color, vec, Keys, CollisionType } from "excalibur";
 
 export class PLayer extends Actor {
 
@@ -11,7 +11,8 @@ export class PLayer extends Actor {
             width: 32,
             height: 32,
             name: "jogador",
-            color: Color.Blue
+            color: Color.Cyan,
+            collisionType: CollisionType.Active
 
         })
 
@@ -52,12 +53,13 @@ export class PLayer extends Actor {
             }
         })
 
+
         engine.input.keyboard.on("release", (event) => {
             if (
                 event.key == Keys.A ||
                 event.key == Keys.Left ||
                 event.key == Keys.D ||
-                event.key == Keys.Right ||
+                event.key == Keys.Right 
             ) { 
                 this.vel.x = 0
             }
