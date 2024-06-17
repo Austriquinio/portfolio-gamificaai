@@ -9,7 +9,6 @@ export class Npc extends Actor {
             name: nome,
             color: cor,
             collisionType: CollisionType.Fixed
-
         })
     }
 }
